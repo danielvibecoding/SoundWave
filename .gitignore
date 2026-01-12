@@ -6,6 +6,28 @@ __pycache__/
 # C extensions
 *.so
 
+# Java / Gradle
+**/build/
+**/.gradle/
+*.class
+*.jar
+
+# VS Code / IDE
+.vscode/
+.idea/
+
+# Audio + DB (don’t commit music/DB)
+backend-java/data/
+*.wav
+*.mp3
+*.m4a
+*.db
+
+# Python leftovers (if any)
+**/.venv/
+__pycache__/
+
+
 # Distribution / packaging
 .Python
 build/
