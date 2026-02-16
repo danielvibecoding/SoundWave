@@ -1,5 +1,12 @@
 package soundwave;
+import soundwave.audio.Ffmpeg;
+import soundwave.audio.ReadWAVArray;
+import soundwave.FFT.ApplyFFT;
 
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
 // dynamic lists
 import java.util.*;
 // ArrayList<integers> xs = new ArrayList<>();
@@ -7,6 +14,7 @@ import java.util.*;
 // xs.add(20);
 // int first = xs.get(0);
 
+//List<String>
 
 // Hashmaps
 // HashMap<Integer, String> m = new HashMap<>();
@@ -47,9 +55,27 @@ public class Main {
     String name = "hello";
     boolean ok = true;
 
-    public static void main(String[] args) {
-        Main m = new Main(); // create an instance so we can use instance fields
-        System.out.println(m.name.toUpperCase());
+        // Path source = Paths.get("/Users/dv/projects/SoundWave/backend-java/src/main/java/soundwave/testFiles" + );
+        // Path target = Paths.get("/Users/dv/projects/SoundWave/backend-java/src/main/java/soundwave/output");
+        // to be done here copy from testFiles into output then perform operation with path in mind
+
+    public static void main(String[] args) throws IOException, InterruptedException, Exception {
+        if (args.length > 2) {
+            System.err.println("Usage: java Main <filename>");
+        }
+
+
+        String filename = args[0];
+        String src = "/Users/dv/projects/Soundwave/backend-java/src/main/java/soundwave/testFiles/";
+        Path path = Paths.get(src);
+        Path combinedPath = path.resolve(filename);
+
+        Path output = Ffmpeg.toMonoWav11025(combinedPath);
+        double[] doubleArray = ReadWAVArray.wavtoByteArray(output);
+        // Files.write(Paths.get("/Users/dv/projects/Soundwave/backend-java/src/main/java/soundwave/output/result.txt"), doubleArray);
+        ApplyFFT.slidingWindow(doubleArray);
+        // SpecPlot.saveSpectrogramPNG(specDb)
+
         System.out.println("SoundWave Java backend is alive.");
     }
 }
