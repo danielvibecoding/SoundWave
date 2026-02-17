@@ -45,7 +45,7 @@ public class ApplyFFT {
         } 
         save(spectrogram);
     }
-
+    
     private static void applyHamming(double[] realArray) {
         int windowSize = realArray.length;
         for (int n = 0; n < windowSize; n ++) {
