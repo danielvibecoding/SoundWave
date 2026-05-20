@@ -2,6 +2,8 @@ package soundwave;
 import soundwave.audio.Ffmpeg;
 import soundwave.audio.ReadWAVArray;
 import soundwave.FFT.ApplyFFT;
+import java.sql.SQLException;
+
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -50,17 +52,13 @@ import java.util.*;
 // public record Peak(double timeSec, double freqHz, double magnitude) {}
 
 public class Main {
-    int num = 5;
-    char letter = 'n';
-    String name = "hello";
-    boolean ok = true;
 
         // Path source = Paths.get("/Users/dv/projects/SoundWave/backend-java/src/main/java/soundwave/testFiles" + );
         // Path target = Paths.get("/Users/dv/projects/SoundWave/backend-java/src/main/java/soundwave/output");
         // to be done here copy from testFiles into output then perform operation with path in mind
 
-    public static void main(String[] args) throws IOException, InterruptedException, Exception {
-        if (args.length > 2) {
+    public static void main(String[] args) throws IOException, InterruptedException, SQLException, Exception {
+        if (args.length != 3) {
             System.err.println("Usage: java Main <filename>");
         }
 

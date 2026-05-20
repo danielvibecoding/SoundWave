@@ -20,12 +20,16 @@
 *.flac
 *.db
 *.png
+*.mp4
 
 
 backend-java/data/*
 !backend-java/data/.gitkeep
 backend-java/data/src/main/java/output
 backend-java/data/src/main/java/testFiles
+backend-java/data/src/main/java/db/SongHash.db
+backend-java/data/src/main/java/db/sql.sql
+
 
 
 # ========= Python leftovers (if you still have them) =========

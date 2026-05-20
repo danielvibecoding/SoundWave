@@ -21,7 +21,7 @@ import java.util.*;
 import javax.sound.sampled.*;
 
 public class ApplyFFT {
-    public static void slidingWindow(double[] samples) throws Exception {
+    public static double[][] slidingWindow(double[] samples) throws Exception {
         int windowSize = 1024;
         int N = samples.length; 
 
@@ -44,6 +44,7 @@ public class ApplyFFT {
             doubleArraysToSpectrogram(realArray, imArray, j, spectrogram);
         } 
         save(spectrogram);
+        return spectrogram;
     }
     
     private static void applyHamming(double[] realArray) {

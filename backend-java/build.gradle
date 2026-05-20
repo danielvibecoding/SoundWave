@@ -22,3 +22,9 @@ java {
 application {
     mainClass = 'soundwave.Main'
 }
+
+tasks.register("runMatchSongTest", JavaExec) {
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = "soundwave.tests.TestMatchSong"
+    args "Test.db"
+}
